@@ -1,0 +1,66 @@
+# Pikchr Diagrams
+
+```elixir
+Mix.install([
+  {:pikchr, "~> 0.5.0"},
+  {:kino, "~> 0.14"}
+])
+```
+
+## Basic Shapes
+
+```elixir
+Pikchr.render!(~s[
+  box "Hello" "World"
+  arrow
+  box "Pikchr" rad 10px
+])
+|> Kino.HTML.new()
+```
+
+## Flowchart
+
+```elixir
+Pikchr.render!(~s[
+  box "Start" fit
+  arrow
+  box "Process" fit
+  arrow
+  diamond "OK?" fit
+  arrow right 200%
+  box "Done" fit
+  arrow down from last diamond.s
+  box "Retry" fit
+  arrow left then up then right to 2nd box.w
+])
+|> Kino.HTML.new()
+```
+
+## Sequence Diagram
+
+```elixir
+Pikchr.render!(~s[
+  right
+  Client: box "Client" fit
+  arrow 300% "request" above
+  Server: box "Server" fit
+  arrow 300% "query" above
+  DB: box "DB" fit
+
+  arrow from DB.s down 50% then left until even with Server then to Server.s "rows" below
+  arrow from Server.s down 100% then left until even with Client then to Client.s "response" below
+])
+|> Kino.HTML.new()
+```
+
+## Dark Mode
+
+```elixir
+Pikchr.render!(~s[
+  box "Dark" fit
+  arrow
+  box "Mode" fit
+], dark_mode: true)
+|> then(fn svg -> ~s(<div style="background:#1e1e1e;padding:1rem;border-radius:8px">#{svg}</div>) end)
+|> Kino.HTML.new()
+```
