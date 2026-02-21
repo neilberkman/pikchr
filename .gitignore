@@ -27,3 +27,4 @@ pikchr-*.tar
 
 # Rust build artifacts
 /native/pikchr_nif/target/
+mise.toml

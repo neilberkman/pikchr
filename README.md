@@ -12,7 +12,7 @@ Add `pikchr` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:pikchr, "~> 0.5.0"}
+    {:pikchr, "~> 0.5.1"}
   ]
 end
 ```

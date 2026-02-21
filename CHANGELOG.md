@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.5.0 (2026-02-21)
+## v0.5.1 (2026-02-21)
+
+Re-release with correct precompiled NIF checksums.
+
+## v0.5.0 (2026-02-21) [retired]
 
 Initial release.
 
